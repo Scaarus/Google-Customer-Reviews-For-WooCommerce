@@ -98,7 +98,7 @@ function add_gcr_badge() {
 	<!-- BEGIN GCR Language Code -->
 	<script>
 	  window.___gcfg = {
-	    lang: 'en-US'
+	    lang: '<?php echo str_replace( '_', '-', get_locale() ); ?>'
 	  };
 	</script>
 	<!-- END GCR Language Code -->
