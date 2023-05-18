@@ -51,13 +51,13 @@ function add_gcr() {
 	window.renderOptIn = function() {
 		window.gapi.load('surveyoptin', function() {
 			window.gapi.surveyoptin.render({
-			"merchant_id": "<?php echo $merchant_id; ?>",
-			"order_id": "<?php echo $order_id; ?>",
-			"email": "<?php echo $email; ?>",
-			"delivery_country": "<?php echo $order->shipping_country; ?>",
-			"estimated_delivery_date": "<?php echo $delivery_date; ?>",
+			"merchant_id": "<?php echo sanitize_text_field( $merchant_id ); ?>",
+			"order_id": "<?php echo sanitize_text_field( $order_id ); ?>",
+			"email": "<?php echo sanitize_text_field( $email ); ?>",
+			"delivery_country": "<?php echo sanitize_text_field( $order->shipping_country ); ?>",
+			"estimated_delivery_date": "<?php echo sanitize_text_field( $delivery_date ); ?>",
 			"opt_in_style": "<?php echo get_option( 'gcr_opt_in_style', 'CENTER_DIALOG' ); ?>",
-			"products": <?php echo $products; ?>
+			"products": <?php echo sanitize_text_field( $products ); ?>
 			});
 		});
 	}
@@ -87,7 +87,7 @@ function add_gcr_badge() {
 	        window.gapi.ratingbadge.render(
 	          ratingBadgeContainer, {
 	            // REQUIRED
-	            "merchant_id": "<?php echo $merchant_id; ?>",
+	            "merchant_id": "<?php echo sanitize_text_field( $merchant_id ); ?>",
 	            // OPTIONAL
 	            "position": "<?php echo get_option( 'gcr_badge_position', 'BOTTOM_RIGHT' ); ?>"
 	          });           
